@@ -61,7 +61,12 @@ export const useTimerStore = create<TimerState>((set, get) => ({
     if (!isRunning) return;
 
     if (timeLeft > 0) {
-      set({ timeLeft: timeLeft - 1 });
+      const newTime = timeLeft - 1;
+      set({ timeLeft: newTime });
+      
+      if (newTime === 0) {
+        set({ isRunning: false, isFinished: true });
+      }
     } else {
       set({ isRunning: false, isFinished: true });
     }

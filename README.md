@@ -1,73 +1,95 @@
-# React + TypeScript + Vite
+# IELTS Session
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based application designed to help manage and time IELTS exam sessions. Built with Vite, React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Timer Management**: dedicated controls for IELTS exam sections.
+- **Modern UI**: Styled with Tailwind CSS and accessible components.
+- **State Management**: Powered by Zustand for efficient state handling.
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Vite](https://vitejs.dev/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+You can run this application locally using Node.js or via Docker.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Node.js** (v22 or later recommended)
+- **npm**
+- **Docker** & **Docker Compose** (for containerized execution)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🚀 Run Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd IELTSsession
+    ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+    The app will likely be available at `http://localhost:5173`.
+
+4.  **Build for production:**
+    ```bash
+    npm run build
+    ```
+
+5.  **Preview the production build:**
+    ```bash
+    npm run preview
+    ```
+
+---
+
+### 🐳 Run with Docker
+
+You can easily run the application using Docker Compose.
+
+#### Using Docker Compose (Recommended)
+
+1.  **Build and start the container:**
+    ```bash
+    docker-compose up -d --build
+    ```
+
+2.  **Access the application:**
+    Open your browser and navigate to:
+    [http://localhost:81940](http://localhost:81940)
+
+3.  **Stop the container:**
+    ```bash
+    docker-compose down
+    ```
+
+#### Using Docker Manually
+
+If you prefer to build the image manually without Compose:
+
+1.  **Build the Docker image:**
+    ```bash
+    docker build -t ielts-session .
+    ```
+
+2.  **Run the container:**
+    ```bash
+    docker run -p 8080:80 ielts-session
+    ```
+    Access the app at `http://localhost:8080`.

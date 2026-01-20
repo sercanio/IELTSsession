@@ -1,8 +1,14 @@
 import { IELTSClock } from './features/timer';
+import { ModeToggle } from "@/components/mode-toggle"
 
 function App() {
   return (
-    <IELTSClock />
+    <div className="relative min-h-screen">
+      <div className="absolute top-4 right-4">
+        <ModeToggle />
+      </div>
+      <IELTSClock />
+    </div>
   );
 }
 

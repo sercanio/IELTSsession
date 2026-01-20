@@ -2,5 +2,5 @@ services:
   app:
     build: .
     ports:
-      - "81940:80"
+      - "8194:80"
     container_name: ieltssession

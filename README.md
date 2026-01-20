@@ -72,7 +72,7 @@ You can easily run the application using Docker Compose.
 
 2.  **Access the application:**
     Open your browser and navigate to:
-    [http://localhost:81940](http://localhost:81940)
+    [http://localhost:8194](http://localhost:8194)
 
 3.  **Stop the container:**
     ```bash

@@ -13,6 +13,12 @@ interface TimerState {
   pause: () => void;
   reset: () => void;
   tick: () => void;
+
+  // Notification settings
+  audioEnabled: boolean;
+  notificationEnabled: boolean;
+  toggleAudio: () => void;
+  toggleNotification: () => void;
 }
 
 export const useTimerStore = create<TimerState>((set, get) => ({
@@ -21,6 +27,10 @@ export const useTimerStore = create<TimerState>((set, get) => ({
   totalTime: 0,
   isRunning: false,
   isFinished: false,
+
+  // Notification settings
+  audioEnabled: false,
+  notificationEnabled: false,
 
   setSection: (id) => {
     const section = TEST_SECTIONS[id];
@@ -63,7 +73,7 @@ export const useTimerStore = create<TimerState>((set, get) => ({
     if (timeLeft > 0) {
       const newTime = timeLeft - 1;
       set({ timeLeft: newTime });
-      
+
       if (newTime === 0) {
         set({ isRunning: false, isFinished: true });
       }
@@ -71,4 +81,8 @@ export const useTimerStore = create<TimerState>((set, get) => ({
       set({ isRunning: false, isFinished: true });
     }
   },
+
+  toggleAudio: () => set((state) => ({ audioEnabled: !state.audioEnabled })),
+
+  toggleNotification: () => set((state) => ({ notificationEnabled: !state.notificationEnabled })),
 }));

@@ -2,9 +2,11 @@ import { SectionSelector } from './SectionSelector';
 import { TimerDisplay } from './TimerDisplay';
 import { ControlPanel } from './ControlPanel';
 import { useTimerTicker } from '../hooks/useTimerTicker';
+import { useTimerNotifications } from '../hooks/useTimerNotifications';
 
 export const IELTSClock = () => {
   useTimerTicker();
+  useTimerNotifications();
 
   return (
     <div className="container mx-auto max-w-4xl p-4 min-h-screen flex flex-col">
@@ -18,7 +20,7 @@ export const IELTSClock = () => {
           <TimerDisplay />
           <ControlPanel />
         </div>
-        
+
         <SectionSelector />
       </main>
 
